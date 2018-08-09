@@ -1,0 +1,3 @@
+load=./processor.sh
+memfree=./memory.sh
+diskfree=./drives.sh
