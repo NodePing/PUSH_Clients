@@ -1,0 +1,17 @@
+[
+	{ 
+		Name: "cpuload",
+		FileName: "powershell.exe",
+		Arguments: "modules\\processor.ps1"
+	},
+	{ 
+		Name: "memfree",
+		FileName: "powershell.exe",
+		Arguments: "modules\\memory.ps1"
+	},
+	{ 
+		Name: "diskfree",
+		FileName: "powershell.exe",
+		Arguments: "modules\\drives.ps1"
+	}
+]

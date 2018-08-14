@@ -1,16 +1,16 @@
 Param(
 	[string]$url = "https://push.nodeping.com/v1",
-	[string]$logfile = "stats.log",
+	[string]$logfile = "NodePingPUSH.log",
         [string]$checkid = "Your Check ID here",
         [string]$checktoken = "Your Check Token here",
-	[switch]$debug = $True,
+	[switch]$debug = $False,
 	[switch]$log = $True
 )
 
-$modules = Get-Content -Raw -Path stats.json | ConvertFrom-Json
+$modules = Get-Content -Raw -Path moduleconfig.json | ConvertFrom-Json
 
 $result = @{
-	data = @{}
+    data = @{}
     id = $checkid
     checktoken = $checktoken
 }
