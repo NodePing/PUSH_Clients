@@ -10,8 +10,8 @@ A client for the NodePing PUSH check (https://nodeping.com/push_check.html) for 
 > Debian 9 *
 > Devuan 2 *
 > Fedora 28
-> OpenSUSE LEAP 15
 > OpenBSD 6.3
+> OpenSUSE LEAP 15
 > Raspbian STRETCH
 > Ubuntu 14.04
 > Ubuntu 16.04

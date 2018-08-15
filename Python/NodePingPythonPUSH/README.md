@@ -1,7 +1,7 @@
 # NodePing Python PUSH check client
 
 A python client for the NodePing PUSH check (https://nodeping.com/push_check.html).
-This has been tested on python 2.7.x and popular Linux distros, FreeBSD, and Windows server versions. Windows and FreeBSD versions require the additional install of psutil, which is easily installed via pip.
+This has been tested on python 2.7.x and popular Linux distros, FreeBSD, OpenBSD, and Windows server versions. Windows and FreeBSD versions require the additional install of psutil, which is easily installed via pip.
 
 ## Configuration
 
@@ -47,7 +47,7 @@ To run the client and see what metrics would be submitted, run it with the --sho
 Example:
 ```sh
 $ ./NodePingPythonPUSH.py --showdata
-{"data":{"load":{"1min":0.31,"5min":0.46,"15min":0.36},"memfree":21414,"diskfree":{ "/":0.95}}}
+{"data": {"diskfree": {"/": 0.95, "/opt": 1.0}, "load": {"1min": 0.3, "5min": 0.43, "15min": 0.52}, "memfree": 3053}}
 ```
 
 ## Modules
