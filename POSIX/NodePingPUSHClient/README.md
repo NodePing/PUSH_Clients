@@ -4,18 +4,18 @@ A client for the NodePing PUSH check (https://nodeping.com/push_check.html) for 
 
 ## Tested distros and systems:
 
-> CentOS 5
-> CentOS 6
-> CentOS 7
-> Debian 9 *
-> Devuan 2 *
-> Fedora 28
-> OpenBSD 6.3
-> OpenSUSE LEAP 15
-> Raspbian STRETCH
-> Ubuntu 14.04
-> Ubuntu 16.04
-> Ubuntu 18.04
+- CentOS 5
+- CentOS 6
+- CentOS 7
+- Debian 9 *
+- Devuan 2 *
+- Fedora 28
+- OpenBSD 6.3
+- OpenSUSE LEAP 15
+- Raspbian STRETCH
+- Ubuntu 14.04
+- Ubuntu 16.04
+- Ubuntu 18.04
 
 * requires installation of curl
 
