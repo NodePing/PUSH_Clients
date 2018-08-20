@@ -9,4 +9,4 @@ port=""
 master=$(redis-cli -h $sentinel_ip -p $port SENTINEL get-master-addr-by-name $redis_master)
 ip=$(echo $master | cut -f1 -d " ")
 
-echo $ip
+echo \"$ip\"
