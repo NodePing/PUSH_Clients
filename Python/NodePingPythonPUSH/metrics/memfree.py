@@ -18,8 +18,8 @@ def main(system, logger):
                     return _utils.report(
                         int(float(line.split(' ')[-2]) * 0.0009765625))
 
-    else: # `system in ('FreeBSD', 'Windows')`
+    else:  # `system in ('FreeBSD', 'Windows')`
         import psutil
 
         # b -> MB
-        return _utils.report(int(psutil.virtual_memory().free / 100000.0))
+        return _utils.report(int(psutil.virtual_memory().free / 1000000.0))
