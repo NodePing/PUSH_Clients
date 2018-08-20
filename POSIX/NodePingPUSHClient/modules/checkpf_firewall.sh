@@ -7,4 +7,4 @@
 
 rulecount=$(pfctl -sr | wc -l | xargs)
 
-printf "{\"ipv4\":%s}" $rulecount
+printf $rulecount
