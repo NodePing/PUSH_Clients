@@ -1,0 +1,1 @@
+{"data": {"diskfree": {"/": 0.34, "/boot": 0.84, "/boot/efi": 0.98}, "load": {"1min": 0.75, "5min": 1.15, "15min": 1.12}, "memfree": 3621}}
