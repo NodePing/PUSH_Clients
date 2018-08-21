@@ -54,6 +54,16 @@ powershell.exe C:\\Users\\You\\Desktop\\NodePingPowerShellPUSH\\NodePingPUSH.ps1
 {"id":"Your Check ID here","checktoken":"Your Check Token here","data":{"memfree":12403,"cpuload":0.46,"diskfree":{ "C":0.05,"D":1}}}
 ```
 
+The default metrics sent are:
+* CPU load: percentage of load on the CPU
+This is tacked by the path/name field "cpuload".
+
+* Memory free space: MB RAM free
+This is tracked by the path/name field "memfree"
+
+* Disk free space: percentage of each partition that is free space by disk letter.
+This is tracked by the path/name field "diskfree.yourdiskletter" - example: "diskfree.C".
+
 ## Modules
 
 The NodePing PowerShell PUSH client is built to be extended with your own modules. This allows you to add any metric to the payload and NodePing will track and alert on your check settings for those metrics. 

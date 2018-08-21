@@ -50,6 +50,16 @@ $ ./NodePingPythonPUSH.py --showdata
 {"data": {"diskfree": {"/": 0.95, "/opt": 1.0}, "load": {"1min": 0.3, "5min": 0.43, "15min": 0.52}, "memfree": 3053}}
 ```
 
+The default metrics for Linux systems sent are:
+* Load: 1 minute, 5 minute, and 15 minute system load
+This is tacked by the path/name field "load.1min", "load.5min", and "load.15min".
+
+* Memory free space: MB RAM free
+This is tracked by the path/name field "memfree"
+
+* Disk free space: percentage of each partition that is free space by mount point.
+This is tracked by the path/name field "diskfree.yourmountpoint" - example: "diskfree./".
+
 ## Modules
 
 The NodePing Python PUSH client is built to be extended with your own modules. This allows you to add any metric to the payload and NodePing will track and alert on your check settings for those metrics. 
