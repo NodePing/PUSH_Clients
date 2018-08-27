@@ -12,6 +12,8 @@ from . import _utils
 
 # Name of the Redis master server
 REDIS_MASTER = ""
+# IP of the Redis Master
+REDIS_MASTER_IP = ""
 # IP of sentinel to query
 SENTINEL_IP = ""
 # Port Redis Sentinel is running on
@@ -28,4 +30,7 @@ def main(system, logger):
     sentinel = Sentinel([(SENTINEL_IP, PORT)], socket_timeout=0.1)
     master = sentinel.discover_master(REDIS_MASTER)
 
-    return _utils.report(master[0])
+    if master[0] == REDIS_MASTER_IP:
+        return _utils.report(int(1))
+    else:
+        return _utils.report(int(0))
