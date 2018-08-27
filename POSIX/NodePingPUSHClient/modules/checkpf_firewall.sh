@@ -7,4 +7,4 @@
 
 rulecount=$(pfctl -sr | wc -l | xargs)
 
-printf $rulecount
+echo $rulecount
