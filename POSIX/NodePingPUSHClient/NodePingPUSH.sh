@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
 url='https://push.nodeping.com/v1?id=CHECK_ID_HERE&checktoken=CHECK_TOKEN_HERE'
+pathtomoduleconfig='/full/path/to/moduleconfig'
+logfilepath='/full/path/to/logfile/NodePingPUSH.log'
 debug=0
 log=0
 
@@ -30,7 +32,7 @@ do
 		json="$json,\"$module\":$result"
 	fi
 	
-done < 'moduleconfig'
+done < '$pathtomoduleconfig'
 
 json="{\"data\":{$json}}"
 
@@ -41,7 +43,7 @@ else
 
 	if [ $log = 1 ]
 	then
-		echo "$(date) => $json" >> NodePingPUSH.log
+		echo "$(date) => $json" >> $logfilepath
 	fi
 	
 	response=$(curl -s -w "%{http_code}" -X POST -H "Content-Type: application/json" --data "$json" "$url")
@@ -50,7 +52,7 @@ else
 	
 	if [ $log = 1 ]
 	then
-		echo "$(date) <= $code $response" >> NodePingPUSH.log
+		echo "$(date) <= $code $response" >> $logfilepath
 	fi
 	
 fi

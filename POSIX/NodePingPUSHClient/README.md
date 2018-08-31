@@ -21,8 +21,9 @@ A client for the NodePing PUSH check (https://nodeping.com/push_check.html) for 
 
 ## Configuration
 
-Modify the 'moduleconfig' file to add or remove any metric modules you desire.
-Modify the 'NodePingPUSH.sh' file and modify the url on line 3:
+Modify the 'moduleconfig' file and put the full absolute path for the modules there.  You can add or remove any metric modules you desire.
+
+Modify the 'NodePingPUSH.sh' file and edit the url on line 3:
 Replace CHECK_ID_HERE with your NodePing check id (found in the check drawer  - click on the check name). 
 Also replace CHECK_TOKEN_HERE with your NodePing check token (also found in the check drawer)
 
@@ -31,6 +32,9 @@ Example:
 ```sh
 url='https://push.nodeping.com/v1?id=201808131639R5ZBF-9TXFFET4&checktoken=EPRFLBJN-GXU5-4QDG-8BNW-5MAS7QQYTCB4'
 ```
+Modify the 'NodePingPUSH.sh' file and edit the pathtomoduleconfig on line 4 to be the absolute path of the moduleconfig file.
+
+Modify the 'NodePingPUSH.sh' file and edit the logfilepath on line 5 to be the absolute path that you want the logfile at.
 
 ## Usage
 
