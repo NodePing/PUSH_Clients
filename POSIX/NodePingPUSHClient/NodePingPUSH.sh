@@ -32,7 +32,7 @@ do
 		json="$json,\"$module\":$result"
 	fi
 	
-done < '$pathtomoduleconfig'
+done < "$pathtomoduleconfig"
 
 json="{\"data\":{$json}}"
 
