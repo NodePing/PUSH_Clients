@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 url='https://push.nodeping.com/v1?id=CHECK_ID_HERE&checktoken=CHECK_TOKEN_HERE'
-pathtomodulesdir='/full/path/to/modules/dir'
+pathtomoduleconfig='/full/path/to/moduleconfig'
 logfilepath='/full/path/to/logfile/NodePingPUSH.log'
 debug=0
 log=0
@@ -32,7 +32,7 @@ do
 		json="$json,\"$module\":$result"
 	fi
 	
-done < '$pathtomodulesdir'
+done < '$pathtomoduleconfig'
 
 json="{\"data\":{$json}}"
 
