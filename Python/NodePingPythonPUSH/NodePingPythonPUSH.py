@@ -32,6 +32,9 @@ import sys
 import tempfile
 import time
 
+# Disables byte compile of code which can cause issues with reading config files
+sys.dont_write_bytecode = True
+
 CONFIGFILE = 'config.ini'
 LOCKFILE = 'gather_metrics.lock'
 # Fix backup logfiles in our rotation to 1

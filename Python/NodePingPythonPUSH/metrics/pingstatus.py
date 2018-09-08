@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -12,7 +13,8 @@ import socket
 import subprocess
 from . import _utils
 
-################################## USER DEFINED VARIABLES ################
+
+######################### USER DEFINED VARIABLES #########################
 
 # List of addresses or hostnames to be pinged
 PING_HOSTS = ["192.168.10.1", "mydomain.com", "fe80::123:abc:543:1"]
