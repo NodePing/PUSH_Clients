@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 Gathers information about system load (Unix) or CPU utilization (Windows).
@@ -28,4 +29,3 @@ def main(system, logger):
             result.update({key: val})
 
     return _utils.report(result)
-

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -8,7 +9,7 @@ REQUIRES: python-redis v2.9 or higher
 from redis.sentinel import Sentinel
 from . import _utils
 
-################################## USER DEFINED VARIABLES ################
+######################## USER DEFINED VARIABLES ##########################
 
 # Name of the Redis master server
 REDIS_MASTER = ""
