@@ -5,7 +5,7 @@
 Checks the status of your MySQL/MariaDB service to see
 if it is accepting queries
 
-NOTE: There is a hidden configuration file with the same name
+NOTE: There is a configuration file with the same name
 as this file (with extension of .ini). Please ensure it is
 created and that you have proper configurations in this file.
 Also make sure the permissions are strong on this file (0400)
@@ -28,7 +28,7 @@ from . import _utils
 
 DIR_PATH = dirname(realpath(__file__))
 FILENAME = __file__.replace('py', 'ini').split("/")[-1]
-CONFIGFILE = DIR_PATH + "/." + FILENAME
+CONFIGFILE = DIR_PATH + "/" + FILENAME
 
 
 def main(system, logger):
