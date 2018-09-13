@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-CONFIG="./modules/.pgsqlstat.conf"
+CONFIG="./modules/pgsqlstat.conf"
 # Config file options shouldn't have spaces between the variable
 # and value, no quotes should surround the value
 
