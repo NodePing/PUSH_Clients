@@ -36,4 +36,10 @@ EOF
 )
 fi
 
-echo $data | awk '{ print $2 }'
+count=$(echo $data | awk '{ print $2 }')
+
+if [ $count > 0 ]; then
+    echo 1
+else
+    echo 0
+fi

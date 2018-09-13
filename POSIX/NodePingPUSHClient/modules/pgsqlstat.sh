@@ -26,4 +26,10 @@ QUERYSTRING=$(grep "querystring" $CONFIG | cut -f 2- -d "=")
 # result=$(sudo -u postgres psql -U postgres -h localhost -c "SELECT COUNT(*) datname from pg_database")
 result=$(su -c "psql -p \"$PASSWORD\" -c \"$QUERYSTRING\"" postgres)
 
-echo $result | awk '{ print $3 }'
+count=$(echo $result | awk '{ print $3 }')
+
+if [ $count > 0 ]; then
+    echo 1
+else
+    echo 0
+fi
