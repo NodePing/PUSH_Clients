@@ -17,18 +17,8 @@ $result = @{
 
 foreach( $module in $modules )
 {
-	$startInfo = New-Object System.Diagnostics.ProcessStartInfo
-	$startInfo.FileName = $module.FileName
-	$startInfo.Arguments = $module.Arguments
-	$startInfo.RedirectStandardOutput = $true
-	$startInfo.UseShellExecute = $false
-	$startInfo.CreateNoWindow = $false
-
-	$process = New-Object System.Diagnostics.Process
-	$process.StartInfo = $startInfo
-	$process.Start() | Out-Null
-	$output = $process.StandardOutput.ReadToEnd()
-	$process.WaitForExit()
+	$script = $module.Arguments
+	$output = & .\$script 2>&1 | Out-String
 
 	$result.data[ $module.Name ] = $output | ConvertFrom-Json
 }
@@ -37,14 +27,14 @@ $json = $result | ConvertTo-Json -Compress
 
 
 if( $debug ) {	
-	echo $json	
+	Write-Output $json	
 } else {
 	
 	if( $log ) {
 		Add-content $logfile -value "$(Get-Date -Format g ) => $json"
 	}
 	
-	$response = Invoke-WebRequest -Uri $url -Method POST -ContentType "application/json" -Body $json	
+	$response = Invoke-WebRequest -Uri $url -UseBasicParsing -Method POST -ContentType "application/json" -Body $json	
 	
 	if( $log ) {
 		Add-content $logfile -value "$(Get-Date -Format g ) <= $($response.StatusCode) $($response.Content)"
