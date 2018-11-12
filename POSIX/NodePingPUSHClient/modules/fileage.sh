@@ -7,7 +7,7 @@
 
 file1="/path/to/file1 0 5 0"
 file2="/path/to/file2 0 2 30"
-file3="/home/courtney/the_wardrobe.tar.gz 10 6 0"
+file3="/path/to/file3 10 6 0"
 
 files="$file1;$file2;$file3"
 
