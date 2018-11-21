@@ -1,0 +1,3 @@
+/path/to/file1 checksum
+/path/to/file2 checksum
+/path/to/file3 checksum
