@@ -7,9 +7,8 @@
 # enter the filename and checksum on a new line each.
 # Set the permissions to 0400 when finished adding data.
 
-hash_type="sha256"
-hash_file="checksum.txt"
-full_path="$(dirname "$(readlink -f $hash_file)")/$hash_file"
+hash_type="md5"
+full_path="$(dirname $0)/checksum.txt"
 
 OS=$(uname)
 
