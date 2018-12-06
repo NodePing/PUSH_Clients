@@ -18,7 +18,7 @@ $result = @{
 foreach( $module in $modules )
 {
 	$script = $module.Arguments
-	$output = & .\$script 2>&1 | Out-String
+	$output = & .\$script 2>&1 | ConvertTo-Json -Compress | Out-String
 
 	$result.data[ $module.Name ] = $output | ConvertFrom-Json
 }

@@ -8,4 +8,4 @@ foreach( $drive in $drives ) {
 	}
 }
 
-echo $result | ConvertTo-Json -Compress
+Write-Output $result
