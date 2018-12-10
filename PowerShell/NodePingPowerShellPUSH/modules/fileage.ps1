@@ -23,4 +23,4 @@ foreach ( $file in $files.GetEnumerator() ) {
     }
 }
 
-Write-Output $files_status | ConvertTo-Json -Compress
+Write-Output $files_status

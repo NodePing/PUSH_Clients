@@ -1,0 +1,29 @@
+[
+	{ 
+		"FileName": "C:\\Users\\Administrator\\Documents\\hello.txt",
+        "Age": 
+        {
+            "days": 0,
+            "hours": 0,
+            "minutes": 0
+        }
+	},
+	{ 
+		"FileName": "C:\\Users\\Administrator\\Desktop\\file1.docx",
+        "Age": 
+        {
+            "days": 0,
+            "hours": 0,
+            "minutes": 0
+        }
+	},
+	{ 
+		"FileName": "C:\\Users\\Administrator\\Documents\\fileage.ps1",
+        "Age": 
+        {
+            "days": 0,
+            "hours": 0,
+            "minutes": 0
+        }
+	}
+]
