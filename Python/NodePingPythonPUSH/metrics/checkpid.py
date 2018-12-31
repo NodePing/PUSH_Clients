@@ -11,7 +11,7 @@ from . import _utils
 PIDFILES = []
 
 
-def main():
+def main(system, logger):
     pidstatus = {}
 
     for pid in PIDFILES:
