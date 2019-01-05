@@ -1,3 +1,6 @@
+# CURRENTLY A WORK IN PROGRESS
+This is still being tested on different OSes and their versions of Python 3. The lowest tested version is Python 3.4. This document is not up to date for the Python 3 client.
+
 # NodePing Python PUSH check client
 
 A python client for the NodePing PUSH check (https://nodeping.com/push_check.html).
