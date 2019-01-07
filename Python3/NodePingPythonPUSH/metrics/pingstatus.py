@@ -54,6 +54,10 @@ def ping_hosts(hostname, ping_count, timeout, system):
             command = "ping -6 -n " + \
                 str(ping_count) + " -w " + \
                 str(timeout) + " " + str(hostname)
+        elif system == "OpenBSD":
+            command = "ping6 -c " + \
+                str(ping_count) + " -w " + \
+                str(timeout) + " -q " + str(hostname)
         else:
             command = "ping6 -c " + \
                 str(ping_count) + " -W " + \
@@ -63,6 +67,10 @@ def ping_hosts(hostname, ping_count, timeout, system):
             command = "ping -n " + \
                 str(ping_count) + " -w " + \
                 str(timeout) + " " + str(hostname)
+        elif system == "OpenBSD":
+            command = "ping -c " + \
+                str(PING_COUNT) + " -w " + \
+                str(TIMEOUT) + " -q " + str(hostname)
         else:
             command = "ping -c " + \
                 str(PING_COUNT) + " -W " + \
@@ -73,7 +81,7 @@ def ping_hosts(hostname, ping_count, timeout, system):
     output = result.communicate()[0].decode('utf-8').strip('\n').split()[17]
 
     # Errors caught by running ping as subprocess convert to 0 for failed ping
-    if output == "0%":
+    if output == "0%" or output == "0.0%":
         up = 1
     else:
         up = 0
