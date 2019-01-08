@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -12,11 +12,7 @@ file that SHOULD be kept in a read-only setting to reduce
 the chances of any possible checksum tampering.
 """
 
-try:
-    import configparser
-except ImportError:
-    import ConfigParser as configparser
-
+import configparser
 import hashlib
 from os.path import isfile, dirname, realpath
 from . import _utils
@@ -76,7 +72,7 @@ def main(system, logger):
         config.set('main', 'file2', 'checksum')
         config.set('settings', 'hash_algorithm', 'sha256')
 
-        with open(CONFIGFILE, 'wb') as configfile:
+        with open(CONFIGFILE, 'w') as configfile:
             config.write(configfile)
 
     files = config.options('main')

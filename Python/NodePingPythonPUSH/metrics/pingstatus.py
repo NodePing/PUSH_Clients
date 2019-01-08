@@ -55,6 +55,10 @@ def main(system, logger):
                 command = "ping -6 -n " + \
                     str(PING_COUNT) + " -w " + \
                     str(TIMEOUT) + " " + str(host)
+            elif system == "OpenBSD":
+                command = "ping6 -c " + \
+                    str(ping_count) + " -w " + \
+                    str(timeout) + " -q " + str(host)
             else:
                 command = "ping6 -c " + \
                     str(PING_COUNT) + " -W " + \
@@ -64,6 +68,10 @@ def main(system, logger):
                 command = "ping -n " + \
                     str(PING_COUNT) + " -w " + \
                     str(TIMEOUT) + " " + str(host)
+            elif system == "OpenBSD":
+                command = "ping -c " + \
+                    str(PING_COUNT) + " -w " + \
+                    str(TIMEOUT) + " -q " + str(host)
             else:
                 command = "ping -c " + \
                     str(PING_COUNT) + " -W " + \
