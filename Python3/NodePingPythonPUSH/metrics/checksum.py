@@ -68,7 +68,7 @@ def main(system, logger):
     else:
         config.add_section('main')
         config.add_section('settings')
-        config.set('main', 'file1', 'checksum')
+        config.set('main', 'file1', 'checksum # If Windows path, remove :')
         config.set('main', 'file2', 'checksum')
         config.set('settings', 'hash_algorithm', 'sha256')
 
@@ -80,6 +80,9 @@ def main(system, logger):
 
     for f in files:
         saved_checksum = config.get('main', f)
+
+        if system == "Windows":
+            f = f[:1] + ':' + f[1:]
 
         if isfile(f):
             # Hash is collected for each file so user has

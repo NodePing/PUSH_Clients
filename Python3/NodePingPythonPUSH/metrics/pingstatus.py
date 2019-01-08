@@ -78,7 +78,13 @@ def ping_hosts(hostname, ping_count, timeout, system):
 
     result = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
     yield from asyncio.sleep(0)
-    output = result.communicate()[0].decode('utf-8').strip('\n').split()[17]
+
+    if system == "Windows":
+        output = result.communicate()[0].decode(
+            'utf-8').strip('\n').split()[34].strip('(')
+    else:
+        output = result.communicate()[0].decode(
+            'utf-8').strip('\n').split()[17]
 
     # Errors caught by running ping as subprocess convert to 0 for failed ping
     if output == "0%" or output == "0.0%":
