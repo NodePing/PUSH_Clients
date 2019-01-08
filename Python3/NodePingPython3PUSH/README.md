@@ -1,10 +1,7 @@
-# CURRENTLY A WORK IN PROGRESS
-This is still being tested on different OSes and their versions of Python 3. The lowest tested version is Python 3.4. This document is not up to date for the Python 3 client.
+# NodePing Python3 PUSH check client
 
-# NodePing Python PUSH check client
-
-A python client for the NodePing PUSH check (https://nodeping.com/push_check.html).
-This has been tested on python 2.7.x and popular Linux distros, FreeBSD, OpenBSD, and Windows server versions. Windows and FreeBSD versions require the additional install of psutil, which is easily installed via pip.
+A python3 client for the NodePing PUSH check (https://nodeping.com/push_check.html).
+This has been tested on python 3.4.x and popular Linux distros, FreeBSD, OpenBSD, and Windows server versions. Windows and FreeBSD and OpenBSD versions require the additional install of psutil, which is easily installed via pip.
 
 ## Configuration
 
@@ -92,4 +89,4 @@ Please see the examples of other modules in the metrics directory and their line
 Found a bug? Built a cool module for xyz? Send it to us!
 We'll encourage pull requests for any changes or additions to the clients, new modules, or documentation.
 
-copyright NodePing LLC 2018
+copyright NodePing LLC 2019
