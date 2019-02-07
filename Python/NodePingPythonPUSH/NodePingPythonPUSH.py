@@ -94,8 +94,11 @@ def main():
         # errors (e.g., maybe one filesystem was unreadable due to permissions
         # errors, but we can still report disk usage for the others.)
         for module in config.modules:
+            module_name = str(module)
+            module_name = module_name.split()[1].split('.')[-1].strip("'")
+
             try:
-                entry = module.main(system, err_logger)
+                entry = {module_name: module.main(system, err_logger)}
             except Exception as err:
                 err = '{module.__name__}: {err}!'.format(**locals())
                 # Don't halt execution if a single module fails
@@ -245,9 +248,9 @@ class Config(object):
             if to_bool(ini, 'modules', module):
                 try:
                     module = importlib.import_module(
-                        'metrics.{module}'.format(**locals()))
+                        'metrics.{module}.{module}'.format(**locals()))
                 except ImportError as err:
-                    panic("Could not import module 'metrics.{module}': "
+                    panic("Could not import module 'metrics.{module}.{module}': "
                           "'{err}'.".format(**locals()))
                 else:
                     self.modules.append(module)
