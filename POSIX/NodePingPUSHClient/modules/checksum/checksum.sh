@@ -1,20 +1,11 @@
 #!/usr/bin/env sh
 
-# This module will alert you if a file checksum has
-# changed for the specified files. If no hash is provided, defaults to SHA256
-# Each file must have the pattern of '/path/to/file checksum'
-# Create a "checksum.txt" file in the same directory as this module and
-# enter the filename and checksum on a new line each.
-# Set the permissions to 0400 when finished adding data.
-
-hash_type="md5"
-full_path="$(dirname $0)/checksum.txt"
+hash_type="$(cat $(dirname $0)/checksum_type.txt)"
+checksums_file="$(dirname $0)/checksum.txt"
 
 OS=$(uname)
 
 sep=''
-
-file_seps=$(echo $files | grep -o ';' | wc -l)
 
 if [ $OS = "Linux" ]; then
     if [ $hash_type = "sha1" ]; then
@@ -44,7 +35,7 @@ fi
 
 echo '{'
 
-cat $full_path | while read -r line; do
+cat $checksums_file | while read -r line; do
     name=$(echo $line | awk '{printf $1}')
     checksum=$(echo $line | awk '{printf $2}')
 

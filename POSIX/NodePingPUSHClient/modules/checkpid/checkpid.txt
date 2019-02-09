@@ -1,0 +1,3 @@
+/path/to/pidfile1
+/path/to/pidfile2
+/path/to/pidfile3

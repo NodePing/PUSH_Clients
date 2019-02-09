@@ -2,12 +2,12 @@
 
 # Checks a list of PID files to see if the file exists or not
 
-PIDFILE=""
+pid_files="$(dirname $0)/checkpid.txt"
 
 sep=''
 echo '{'
 
-for file in $PIDFILE; do
+cat $pid_files | while read -r file; do
     echo $sep
     
     if [ -f $file ]; then

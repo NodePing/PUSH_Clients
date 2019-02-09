@@ -3,29 +3,20 @@
 # This module will alert you if a file hasn't been
 # modified in the given timeframe that you have chosen
 
-# Each file must have the pattern of '/path/to/file days hours minutes'
-
-file1="/path/to/file1 0 5 0"
-file2="/path/to/file2 0 2 30"
-file3="/path/to/file3 10 6 0"
-
-files="$file1;$file2;$file3"
-
 now=$(date +"%s")
 OS=$(uname)
+file_list="$(dirname $0)/fileage.txt"
 
 sep=''
 
 echo '{'
 
-file_seps=$(echo $files | grep -o ';' | wc -l)
+cat $file_list | while read -r line; do
 
-for i in $(seq $(expr $file_seps + 1)); do
-    contents=$(echo $files | cut -f $i -d';')
-    name=$(echo $contents | awk '{printf $1}')
-    days=$(echo $contents | awk '{printf $2}')
-    hours=$(echo $contents | awk '{printf $3}')
-    minutes=$(echo $contents | awk '{printf $4}')
+    name=$(echo $line | cut -f 1 -d " ")
+    days=$(echo $line | cut -f 2 -d " ")
+    hours=$(echo $line | cut -f 3 -d " ")
+    minutes=$(echo $line | cut -f 4 -d " ")
 
     days_to_sec=$(( $days * 86400 ))
     hrs_to_sec=$(( $hours * 3600 ))
@@ -38,6 +29,8 @@ for i in $(seq $(expr $file_seps + 1)); do
     	if [ $OS = "Linux" ]; then
 	    last_modify=$(stat -c %Y $name)
 	elif [ $OS = "FreeBSD" ]; then
+	    last_modify=$(stat -f %a $name)
+	elif [ $OS = "OpenBSD" ]; then
 	    last_modify=$(stat -f %a $name)
 	fi
 
