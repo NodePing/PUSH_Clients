@@ -1,14 +1,17 @@
 [
 	{ 
 		"FileName": "C:\\Users\\Administrator\\Documents\\hello.txt",
-		"Hash": "hash1"
+		"Hash": "hash1",
+		"HashAlgorithm": "SHA256"
 	},
 	{ 
 		"FileName": "C:\\Users\\Administrator\\Desktop\\file1.docx",
-		"Hash": "hash2"
+		"Hash": "hash2",
+		"HashAlgorithm": "SHA256"
 	},
 	{ 
 		"FileName": "C:\\Users\\Administrator\\Documents\\fileage.ps1",
-		"Hash": "hash3"
+		"Hash": "hash3",
+		"HashAlgorithm": "SHA256"
 	}
 ]

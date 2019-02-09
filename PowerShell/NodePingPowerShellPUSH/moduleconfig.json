@@ -2,16 +2,16 @@
 	{ 
 		"Name": "cpuload",
 		"FileName": "powershell.exe",
-		"Arguments": "modules\\processor.ps1"
+		"Arguments": "modules\\processor\\processor.ps1"
 	},
 	{ 
 		"Name": "memfree",
 		"FileName": "powershell.exe",
-		"Arguments": "modules\\memory.ps1"
+		"Arguments": "modules\\memory\\memory.ps1"
 	},
 	{ 
 		"Name": "diskfree",
 		"FileName": "powershell.exe",
-		"Arguments": "modules\\drives.ps1"
+		"Arguments": "modules\\drives\\drives.ps1"
 	}
 ]

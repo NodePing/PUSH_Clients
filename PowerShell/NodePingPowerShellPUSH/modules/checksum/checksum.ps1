@@ -1,13 +1,11 @@
-$files = Get-Content -Raw -Path modules\checksum.json | ConvertFrom-Json
-
-# SHA1, SHA256, SHA384, SHA512, MD5
-$hash_algorithm = "SHA256"
+$files = Get-Content -Raw -Path modules\checksum\checksum.json | ConvertFrom-Json
 
 $hash_status=@{}
 
 foreach ( $file in $files ) {
     $filename = $file.FileName
     $stored_hash = $file.Hash
+    $hash_algorithm = $file.HashAlgorithm
 
     if (( Test-Path $filename )) {
         $get_hash = Get-FileHash $filename -Algorithm $hash_algorithm

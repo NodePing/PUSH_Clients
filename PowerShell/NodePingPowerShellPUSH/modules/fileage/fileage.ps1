@@ -1,4 +1,4 @@
-$files = Get-Content -Raw -Path modules\fileage.json | ConvertFrom-Json
+$files = Get-Content -Raw -Path modules\fileage\fileage.json | ConvertFrom-Json
 
 $files_status=@{}
 
