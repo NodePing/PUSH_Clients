@@ -65,7 +65,7 @@ def main(system, logger):
             # choice in algorithm per file
             checksum = get_hash(f, algorithm)
 
-            if saved_checksum == checksum:
+            if saved_checksum.upper() == checksum.upper():
                 results.update({f: 1})
             else:
                 results.update({f: 0})
