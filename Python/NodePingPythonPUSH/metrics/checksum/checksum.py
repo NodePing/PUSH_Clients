@@ -13,7 +13,7 @@ the chances of any possible checksum tampering.
 """
 
 import hashlib
-from os.path import isfile, dirname, realpath
+from os.path import isfile
 from . import config
 
 
@@ -59,11 +59,7 @@ def main(system, logger):
     files = config.files
     algorithm = config.hash_algorithm
 
-    for saved_checksum, f in files.items():
-
-        if system == "Windows":
-            f = f[:1] + ':' + f[1:]
-
+    for f, saved_checksum in files.items():
         if isfile(f):
             # Hash is collected for each file so user has
             # choice in algorithm per file

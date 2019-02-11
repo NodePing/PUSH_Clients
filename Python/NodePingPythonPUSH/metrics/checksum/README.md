@@ -9,6 +9,7 @@ checksum and returns a 1 if the checksums match, or a 0 for fail if they dont.
 ## Configuration
 
 * Modify the `files` dictionary in the config.py file
+* For Windows systems, be sure to put an r at the beginning of the pathname like r'C:\path\to\file' so Python interprets the path as a raw string
 * Add values where the key is the expected checksum and the value is the full path to the file
 * Set the hash_algorithm variable to a hashing algorithm
   * md5
