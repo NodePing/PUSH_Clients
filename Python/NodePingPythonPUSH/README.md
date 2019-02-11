@@ -100,4 +100,4 @@ from .. import _utils
 Found a bug? Built a cool module for xyz? Send it to us!
 We'll encourage pull requests for any changes or additions to the clients, new modules, or documentation.
 
-copyright NodePing LLC 2018
+copyright NodePing LLC 2019
