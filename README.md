@@ -25,12 +25,12 @@ Your PUSH client can send in metrics, like system load and disk free space, and 
 
 NodePing PUSH checks are built to be extended with your own script modules. This allows you to add any metric to the payload and NodePing will track and alert on your check settings for those metrics. Want to keep track of slow MySQL queries or pageviews, write your script to gather the metrics as a module for one of our clients and drop it in place.  See the individual clients for instructions on how to add your own modules.
 
-## Multiple Check IDs
+## Multiple Checks per Host
 
-If you wish to push metrics with multiple check IDs to, for example, keep them separate or if you want to run checks at different intervals (like one set at 1 minute and another at 30 minutes), you can accomplish this by creating a duplicated folder. It is recommended to have a `push_agents` directory and within that directory have a copy of the check client separated based on your needs. For example, your file structure could look like this:
+If you wish to push metrics to multiple checks in NodePing, for example to keep them separate or if you want to run checks at different intervals (like one set at 1 minute and another at 30 minutes), you can accomplish this by creating a duplicated folder for the client. It is recommended to have a `push_agents` directory for all your push clients and within that directory have a copy of the push client separated based on your needs. For example, your file structure could look like this:
 
-`/home/user/push_agents/1minute_checks`
-`/home/user/push_agents/30minute_checks`
+`/home/user/push_agents/<uniquecheckid>/POSIX/NodePingPUSHClient`
+`/home/user/push_agents/<differentcheckid>Python3/NodePingPython3PUSH`
 
 ## Contributions
 
