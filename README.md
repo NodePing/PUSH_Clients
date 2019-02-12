@@ -27,10 +27,10 @@ NodePing PUSH checks are built to be extended with your own script modules. This
 
 ## Multiple Checks per Host
 
-If you wish to push metrics to multiple checks in NodePing, for example to keep them separate or if you want to run checks at different intervals (like one set at 1 minute and another at 30 minutes), you can accomplish this by creating a duplicated folder for the client. It is recommended to have a `push_agents` directory for all your push clients and within that directory have a copy of the push client separated based on your needs. For example, your file structure could look like this:
+If you wish to push metrics to multiple checks in NodePing, for example to keep them separate or if you want to run checks at different intervals (like one set at 1 minute and another at 30 minutes), you can accomplish this by creating a duplicated folder for the client. It is recommended to have a `push_agents` directory and within that directory have a directory for each check with a copy of the push client configured just for that check. For example, your file structure could look like this (using different push clients for different checks - but you could use the same, just copy the client code):
 
 `/home/user/push_agents/<uniquecheckid>/POSIX/NodePingPUSHClient`
-`/home/user/push_agents/<differentcheckid>Python3/NodePingPython3PUSH`
+`/home/user/push_agents/<differentcheckid>/Python3/NodePingPython3PUSH`
 
 ## Contributions
 
