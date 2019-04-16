@@ -1,7 +1,7 @@
 # NodePing Python3 PUSH check client
 
 A python3 client for the NodePing PUSH check (<https://nodeping.com/push_check.html>).
-This has been tested on python 3.4.x and popular Linux distros, FreeBSD, OpenBSD, and Windows server versions. Windows and FreeBSD and OpenBSD versions require the additional install of psutil, which is easily installed via pip or your system's package manager.
+This has been tested on python 3.4.x and popular Linux distros, FreeBSD, OpenBSD 6, and Windows server versions. Windows and FreeBSD and OpenBSD versions require the additional install of psutil, which is easily installed via pip or your system's package manager.
 
 ## Configuration
 
