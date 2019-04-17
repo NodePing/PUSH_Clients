@@ -19,7 +19,7 @@ if [ $OS = "Linux" ]; then
     else
 	command="sha256sum"
     fi
-elif [ $OS = "FreeBSD" ]; then
+elif [ $OS = "FreeBSD" ] || [ $OS = "OpenBSD" ]; then
     if [ $hash_type = "sha1" ]; then
 	command="sha1"
     elif [ $hash_type = "sha256" ]; then
@@ -44,7 +44,7 @@ cat $checksums_file | while read -r line; do
     if [ -f $name ]; then
 	if [ $OS = "Linux" ]; then
 	    run_sum=$($command $name | awk '{printf $1}')
-	elif [ $OS = "FreeBSD" ]; then
+	elif [ $OS = "FreeBSD" ] || [ $OS = "OpenBSD" ]; then
 	    run_sum=$($command $name | awk '{printf $4}')
 	fi
 
