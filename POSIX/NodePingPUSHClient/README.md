@@ -9,7 +9,7 @@ A client for the NodePing PUSH check (<https://nodeping.com/push_check.html>) fo
 - CentOS 7
 - Debian 9
 - Devuan 2
-- Fedora 28
+- Fedora 29, 30
 - FreeBSD 11.2, 12.0
 - OpenBSD 6.5
 - OpenSUSE LEAP 15
