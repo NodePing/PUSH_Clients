@@ -197,6 +197,8 @@ class Config(object):
 
         self.parse_args()
 
+        working_path = dirname(realpath(expanduser(__file__)))
+
         ini = configparser.ConfigParser()
         try:
             ini.read(path)
@@ -211,8 +213,7 @@ class Config(object):
         self.log = to_bool(ini, 'logging', 'log')
         if self.log:
             self.logsize = to_positive_int(ini, 'logging', 'logsize')
-            self.logfile = realpath(expanduser(ini.get('logging', 'logfile')))
-            self.logfile = join(path, self.logfile)
+            self.logfile = join(working_path, ini.get('logging', 'logfile'))
             self.logerror = realpath(
                 expanduser(ini.get('logging', 'logerror')))
             for file in (self.logfile, self.logerror):
