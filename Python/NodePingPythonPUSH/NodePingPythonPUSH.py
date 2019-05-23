@@ -212,6 +212,7 @@ class Config(object):
         if self.log:
             self.logsize = to_positive_int(ini, 'logging', 'logsize')
             self.logfile = realpath(expanduser(ini.get('logging', 'logfile')))
+            self.logfile = join(path, self.logfile)
             self.logerror = realpath(
                 expanduser(ini.get('logging', 'logerror')))
             for file in (self.logfile, self.logerror):
