@@ -214,8 +214,7 @@ class Config(object):
         if self.log:
             self.logsize = to_positive_int(ini, 'logging', 'logsize')
             self.logfile = join(working_path, ini.get('logging', 'logfile'))
-            self.logerror = realpath(
-                expanduser(ini.get('logging', 'logerror')))
+            self.logerror = join(working_path, ini.get('logging', 'logfile'))
             for file in (self.logfile, self.logerror):
                 file = file if isfile(file) else dirname(file)
                 # if not os.access(self.logfile, os.W_OK):
