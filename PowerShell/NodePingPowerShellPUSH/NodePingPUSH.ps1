@@ -1,13 +1,15 @@
 Param(
 	[string]$url = "https://push.nodeping.com/v1",
 	[string]$logfile = "NodePingPUSH.log",
-        [string]$checkid = "Your Check ID here",
-        [string]$checktoken = "Your Check Token here",
+	[string]$checkid = "Your Check ID here",
+	[string]$checktoken = "Your Check Token here",
 	[switch]$debug = $False,
 	[switch]$log = $True
 )
 
-$modules = Get-Content -Raw -Path moduleconfig.json | ConvertFrom-Json
+$moduleconfig = "$PSScriptRoot\moduleconfig.json"
+
+$modules = Get-Content -Raw -Path $moduleconfig | ConvertFrom-Json
 
 $result = @{
     data = @{}
@@ -17,8 +19,9 @@ $result = @{
 
 foreach( $module in $modules )
 {
-	$script = $module.Arguments
-	$output = & .\$script 2>&1 | ConvertTo-Json -Compress | Out-String
+	$arguments = $module.Arguments
+	$script = "$PSScriptRoot\$arguments"
+	$output = & $script 2>&1 | ConvertTo-Json -Compress | Out-String
 
 	$result.data[ $module.Name ] = $output | ConvertFrom-Json
 }
