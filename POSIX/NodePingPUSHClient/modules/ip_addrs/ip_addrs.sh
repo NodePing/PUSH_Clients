@@ -27,8 +27,18 @@ for ip in $ips; do
 	continue
     elif [ $has_ip = 1 ]; then
 	pass=1
-	break
+    elif [ $has_ip = 0 ]; then
+	 pass=0
+	 break
     fi
+
+    acceptable_ips=$(echo $acceptable_ips | sed "s/$ip//g" | xargs)
 done
+
+remainder=$(echo -n $acceptable_ips | wc -c)
+
+if [ $remainder != 0 ]; then
+    pass=0
+fi
 
 echo $pass
