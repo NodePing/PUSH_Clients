@@ -2,7 +2,7 @@
 
 . $(dirname $0)/variables.sh
 
-pass=1
+pass=0
 
 os=$(uname)
 
@@ -14,7 +14,7 @@ else
 fi
 
 for ip in $ips; do
-    cidr=$(echo $ip | grep -oE '/[1-9][0-9][0-9]?$|^128$')
+    cidr=$(echo $ip | grep -oE '(100$)|/[1-9]{1,3}')
     ip=$(echo $ip | sed "s#$cidr##g" | xargs)
 
     has_ip=$(echo $acceptable_ips | grep -o -m1 -c $ip)
@@ -25,8 +25,8 @@ for ip in $ips; do
 	continue
     elif [ "$ip" = "::1" ]; then
 	continue
-    elif [ $has_ip != 1 ]; then
-	pass=0
+    elif [ $has_ip = 1 ]; then
+	pass=1
 	break
     fi
 done
