@@ -54,11 +54,11 @@ def main(system, logger):
             if type(ip) == tuple:
                 if ip[0].startswith('fe80'):
                     continue
-                if ip[0] == '::1':
+                elif ip[0] == '::1':
                     continue
                 else:
                     ips.append(ip[0])
-            if ip == "127.0.0.1" or ip == "127.0.1.1":
+            elif ip == "127.0.0.1" or ip == "127.0.1.1":
                 continue
             else:
                 ips.append(ip)
