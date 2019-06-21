@@ -1,4 +1,4 @@
-$files = Get-Content -Raw -Path modules\checksum\checksum.json | ConvertFrom-Json
+$files = Get-Content -Raw -Path $PSScriptRoot\checksum.json | ConvertFrom-Json
 
 $hash_status=@{}
 

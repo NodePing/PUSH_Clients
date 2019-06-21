@@ -1,4 +1,4 @@
-$acceptable_ips = Get-Content -Raw -Path modules\ip_addrs\ip_addrs.json | ConvertFrom-Json
+$acceptable_ips = Get-Content -Raw -Path $PSScriptRoot\ip_addrs.json | ConvertFrom-Json
 
 $ips = Get-NetIPAddress | Select-Object -Property IPAddress
 
