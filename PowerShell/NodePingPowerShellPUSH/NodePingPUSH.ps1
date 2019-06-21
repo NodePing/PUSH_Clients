@@ -1,6 +1,6 @@
 Param(
 	[string]$url = "https://push.nodeping.com/v1",
-	[string]$logfile = "NodePingPUSH.log",
+	[string]$logfile = "$PSScriptRoot\NodePingPUSH.log",
 	[string]$checkid = "Your Check ID here",
 	[string]$checktoken = "Your Check Token here",
 	[switch]$debug = $False,
