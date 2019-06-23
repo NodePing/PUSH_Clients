@@ -11,6 +11,15 @@ DNS poisoning.
 
 ## Configuration
 
+Be sure to have the dnspython package installed to do DNS queries.
+
+`python3 -m pip install --user dnspython`
+
+On Windows:
+
+`python.exe -m pip install --user dnspython`
+
+
 You will need to modify the `config.py` file in this directory and set your
 own values for the metric:
 
