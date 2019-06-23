@@ -15,7 +15,10 @@ fi
 
 for ip in $ips; do
     cidr=$(echo $ip | grep -oE '(100$)|/[1-9]{1,3}')
-    ip=$(echo $ip | sed "s#$cidr##g" | xargs)
+
+    if [ "$os" = "Linux" ]; then
+        ip=$(echo $ip | sed "s#$cidr##g" | xargs)
+    fi
 
     has_ip=$(echo $acceptable_ips | grep -o -m1 -c $ip)
 
