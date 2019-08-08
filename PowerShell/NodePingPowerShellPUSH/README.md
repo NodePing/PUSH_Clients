@@ -9,6 +9,8 @@ Modify the 'NodePingPUSH.ps1' file and set the check id and check token on lines
 Replace "Your Check ID here" with your NodePing check id (found in the check drawer  - click on the check name).
 Also replace "Your Check Token here" with your NodePing check token (also found in the check drawer)
 
+You can also modify the retries variable to change how many times you want the client to try reconnecting to the PUSH servers on line 7 as well as the timeout value on line 6 to determine how many seconds to wait to consider the connection timed out.
+
 Example:
 
 ```sh

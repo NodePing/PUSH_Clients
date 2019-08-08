@@ -146,18 +146,26 @@ def post_results(results, config):
     Updates and returns the `results` to include the status code and JSON
     response by the server.
     """
-    try:
-        request = urlopen(
-            Request(
-                config.url,
-                data=json.dumps(results),
-                headers={'Content-Type': 'application/json'}))
-    except URLError as err:
-        panic('Failed to POST results to {config.url}: {err}.'.format(
-            **locals()))
-    else:
-        results['status_code'] = request.getcode()
-        results['json_response'] = request.read()
+
+    retry = config.retries + 1
+
+    while retry > 0:
+        try:
+            request = urlopen(
+                Request(
+                    config.url,
+                    data=json.dumps(results),
+                    headers={'Content-Type': 'application/json'}),
+                timeout=config.timeout)
+        except URLError as err:
+            retry -= 1
+            if retry == 0:
+                panic('Failed to POST results to {config.url}: {err}.'.format(
+                    **locals()))
+        else:
+            results['status_code'] = request.getcode()
+            results['json_response'] = request.read()
+            break
 
     return results
 
@@ -242,6 +250,8 @@ class Config(object):
                   'not be blank.')
         self.url = 'https://{url.path}?id={id_}&checktoken={checktoken}'.format(
             **locals())
+        self.timeout = int(ini.get('server', 'timeout'))
+        self.retries = int(ini.get('server', 'retries'))
 
         # Metrics modules
         self.modules = []

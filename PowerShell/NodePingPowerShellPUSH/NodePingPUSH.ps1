@@ -3,6 +3,8 @@ Param(
 	[string]$logfile = "$PSScriptRoot\NodePingPUSH.log",
 	[string]$checkid = "Your Check ID here",
 	[string]$checktoken = "Your Check Token here",
+	[int]$timeout = 5,
+	[int]$retries = 3,
 	[switch]$debug = $False,
 	[switch]$log = $True
 )
@@ -37,7 +39,27 @@ if( $debug ) {
 		Add-content $logfile -value "$(Get-Date -Format g ) => $json"
 	}
 	
-	$response = Invoke-WebRequest -Uri $url -UseBasicParsing -Method POST -ContentType "application/json" -Body $json	
+	# Need to write custom retry code to support Powershell versions <6.0
+	$tries = $retries + 1
+
+	while ( $tries -gt 0 ) {
+		try {
+			$response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec $timeout -Method POST -ContentType "application/json" -Body $json
+			$StatusCode = $response.StatusCode
+		}
+		catch {
+				$StatusCode = $_.Exception.Response.StatusCode.value__
+		}
+
+		if ( $StatusCode -eq 200 -or $StatusCode -eq 409) {
+			$tries = 0
+		} else {
+			$tries -= 1
+		}
+		
+
+
+	}
 	
 	if( $log ) {
 		Add-content $logfile -value "$(Get-Date -Format g ) <= $($response.StatusCode) $($response.Content)"
