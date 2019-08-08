@@ -8,6 +8,7 @@ A client for the NodePing PUSH check (<https://nodeping.com/push_check.html>) fo
 - CentOS 6
 - CentOS 7
 - Debian 9
+- Debian 10
 - Devuan 2
 - Fedora 29, 30
 - FreeBSD 11.2, 12.0
@@ -37,6 +38,10 @@ url='https://push.nodeping.com/v1?id=201808131639R5ZBF-9TXFFET4&checktoken=EPRFL
 Modify the 'NodePingPUSH.sh' file and edit the pathtomoduleconfig on line 4 to be the absolute path of the moduleconfig file.
 
 Modify the 'NodePingPUSH.sh' file and edit the logfilepath on line 5 to be the absolute path that you want the logfile at.
+
+Modify the 'NodePingPUSH.sh' file and edit the retries on line 8 to set the number of times you want the client to retry connecting if the client is unable to connect the first time.
+
+Modify the 'NodePingPUSH.sh' file and edit the timeout on line 9 to determine how many seconds you want to timeout the connection if the server cannot be reached.
 
 ## Usage
 
@@ -93,6 +98,6 @@ For examples, see the modules in the metrics directory.
 ## Contributions
 
 Found a bug? Built a cool module for xyz? Send it to us!
-We'll encourage pull requests for any changes or additions to the clients, new modules, or documentation.
+We encourage pull requests for any changes or additions to the clients, new modules, or documentation.
 
 copyright NodePing LLC 2019

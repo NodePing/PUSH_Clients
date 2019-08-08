@@ -5,9 +5,11 @@ This has been tested on python 2.7.x and popular Linux distros, FreeBSD, OpenBSD
 
 ## Configuration
 
-Modify the 'config.ini' file and set the check id and check token on lines 9 and 10:
+Modify the 'config.ini' file and set the check id and check token on lines 15 and 16:
 Replace YourCheckID with your NodePing check id (found in the check drawer  - click on the check name).
 Also replace YourCheckToken with your NodePing check token (also found in the check drawer)
+
+You can also modify the retries variable to change how many times you want the client to try reconnecting to the PUSH servers on line 13 as well as the timeout value on line 11 to determine how many seconds to wait to consider the connection timed out.
 
 Example:
 
