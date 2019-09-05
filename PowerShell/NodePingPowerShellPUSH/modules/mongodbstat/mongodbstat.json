@@ -1,0 +1,5 @@
+{
+    "eval_string": "print('Hello world')",
+    "expected_output": "Hello world",
+    "mongo_exe": "C:\\Program Files\\MongoDB\\Server\\4.2\\bin\\mongo.exe"
+}
