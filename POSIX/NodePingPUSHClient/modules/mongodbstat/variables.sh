@@ -1,2 +1,4 @@
-eval_string="print(\"Hello world\")"
-expected_message="Hello world"
+eval_string="db.runCommand( {connectionStatus: 1});"
+expected_message="\"ok\" : 1"
+username=""
+password=""

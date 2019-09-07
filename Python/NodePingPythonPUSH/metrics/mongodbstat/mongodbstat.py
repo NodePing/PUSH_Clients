@@ -16,8 +16,14 @@ def main(system, logger):
 
     eval_string = config.eval_string
     expected_message = config.expected_message
+    username = config.username
+    password = config.password
 
-    command = "mongo --eval '{0}'".format(eval_string)
+    if username and password:
+        command = "mongo --username {0} --password {1} --eval '{2}'".format(
+            username, password, eval_string)
+    else:
+        command = "mongo --eval '{0}'".format(eval_string)
 
     result = subprocess.Popen(
         command, shell=True, stdout=subprocess.PIPE)

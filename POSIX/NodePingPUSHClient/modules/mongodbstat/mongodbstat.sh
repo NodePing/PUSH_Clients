@@ -2,7 +2,11 @@
 
 . $(dirname $0)/variables.sh
 
-returned=$(mongo --eval "$eval_string" | grep -c "$expected_message")
+if [ -z $username ] && [ -z $password ]; then
+    returned=$(mongo --eval "$eval_string" | grep -c "$expected_message")
+else
+    returned=$(mongo --username "$username" --password "$password" --eval "$eval_string" | grep -c "$expected_message")
+fi
 
 if [ $returned -gt 0 ]; then
     echo "1"
