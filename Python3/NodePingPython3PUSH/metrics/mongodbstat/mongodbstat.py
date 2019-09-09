@@ -18,12 +18,16 @@ def main(system, logger):
     expected_message = config.expected_message
     username = config.username
     password = config.password
+    mongo_path = config.mongo_path
 
     if username and password:
-        command = "mongo --username {0} --password {1} --eval '{2}'".format(
-            username, password, eval_string)
+        command = "{0} --username {1} --password {2} --eval '{3}'".format(
+            mongo_path, username, password, eval_string)
     else:
-        command = "mongo --eval '{0}'".format(eval_string)
+        command = "{0} --eval '{1}'".format(mongo_path, eval_string)
+
+    if system == "Windows":
+        command = "powershell.exe & \"{0}\"".format(command)
 
     result = subprocess.Popen(
         command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
