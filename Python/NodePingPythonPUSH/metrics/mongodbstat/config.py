@@ -6,3 +6,5 @@ expected_message = "\"ok\" : 1"
 username = None
 # Optional password authentication
 password = None
+# Path to mongo executable. *NIX systems often work with just "mongo"
+mongo_path = "mongo"

@@ -20,6 +20,9 @@ def main(system, logger):
     password = config.password
     mongo_path = config.mongo_path
 
+    if system == "Windows":
+        mongo_path = "'{0}'".format(mongo_path)
+
     if username and password:
         command = "{0} --username {1} --password {2} --eval '{3}'".format(
             mongo_path, username, password, eval_string)
@@ -27,10 +30,13 @@ def main(system, logger):
         command = "{0} --eval '{1}'".format(mongo_path, eval_string)
 
     if system == "Windows":
-        command = "powershell.exe & \"{0}\"".format(command)
+        command = "powershell.exe & {0}".format(command)
 
-    result = subprocess.Popen(
-        command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        result = subprocess.Popen(
+            command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    else:
+        result = subprocess.Popen(
+            command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
 
     output = result.communicate()[0].decode(
         'utf-8'.strip('\n'))
