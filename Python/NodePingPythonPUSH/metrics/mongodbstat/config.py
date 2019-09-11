@@ -7,4 +7,5 @@ username = None
 # Optional password authentication
 password = None
 # Path to mongo executable. *NIX systems often work with just "mongo"
-mongo_path = "mongo"
+# The r is in place for "raw string" when inserting a Windows path
+mongo_path = r"mongo"
