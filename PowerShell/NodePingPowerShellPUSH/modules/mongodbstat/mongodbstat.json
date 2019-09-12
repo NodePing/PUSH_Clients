@@ -1,7 +1,7 @@
 {
     "eval_string": "db.runCommand( {connectionStatus: 1});",
     "expected_output": "\"ok\" : 1",
-    "mongo_exe": "C:\\Program Files\\MongoDB\\Server\\4.2\\bin\\mongo.exe",
+    "mongo_path": "C:\\Program Files\\MongoDB\\Server\\4.2\\bin\\mongo.exe",
     "username": "",
     "password": ""
 }
