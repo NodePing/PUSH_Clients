@@ -15,7 +15,7 @@ def main(system, logger):
     """
 
     eval_string = config.eval_string
-    expected_message = config.expected_message
+    expected_output = config.expected_output
     username = config.username
     password = config.password
     mongo_path = config.mongo_path
@@ -41,7 +41,7 @@ def main(system, logger):
     output = result.communicate()[0].decode(
         'utf-8'.strip('\n'))
 
-    if expected_message in output:
+    if expected_output in output:
         return 1
 
     return 0
