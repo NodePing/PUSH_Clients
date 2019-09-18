@@ -1,1 +1,1 @@
-urls="https://example.com http://example2.com"
+url="https://example.com"
