@@ -2,5 +2,7 @@
 url="https://example.com"
 # HTTP method (GET, POST, PUT, DELETE)
 http_method="GET"
-# JSON data to POST/PUT to URL
-json_data=''
+# The content type of the data being sent in the data variable
+content_type="application/json"
+# Data to POST/PUT to URL
+data=''
