@@ -3,5 +3,14 @@
 . $(dirname $0)/variables.sh
 template_file="$(dirname $0)/httpcheck.json"
 
-
-echo $(curl -w "@$template_file" -o /dev/null -s $url)
+if [ $http_method = "GET" ] || [ $http_method = "DELETE" ]; then
+    echo $(curl -X $http_method -w "@$template_file" -o /dev/null -s $url)
+elif [ $http_method = "POST" ] || [ $http_method = "PUT" ]; then
+    if [ -z $ json_data ]; then
+	echo $(curl -X $http_method -w "@$template_file" -o /dev/null -s $url)
+    else
+	echo $(curl -X $http_method -w "@$template_file" -H "Content-Type: application/json" -o /dev/null -s --data "$json_data" $url)
+    fi
+else
+    echo 0
+fi
