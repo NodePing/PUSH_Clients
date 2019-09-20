@@ -21,6 +21,6 @@ In the `variables.sh` file:
 
 * Add the URL to the `url` variable (including the http or https prefix).
 * Set the HTTP method (GET, POST, PUT, DELETE) in the `http_method` variable
-* If there is any JSON data to submit, add it to the `json_data` variable
+* If there is any JSON data to submit, add it to the `data` variable
 
 To configure the check, go to create your check in NodePing. Add fields to look like `httpcheck.http_code`, `httpcheck.time_starttransfer`, `httpcheck.time_total`, etc. and set the min/max times you expect.
