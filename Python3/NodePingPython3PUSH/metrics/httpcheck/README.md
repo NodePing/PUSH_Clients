@@ -14,14 +14,13 @@ check against include:
 * time_starttransfer: Time to first byte
 * time_total: The total time for the entire operation
 
-
 ## Configuration
 
 In the `config.py` file: 
 
 * Add the URL to the `url` variable (including the http or https prefix).
 * Set the HTTP method (GET, POST, PUT) in the `http_method` variable
-* If there is any JSON data to submit, add it to the `data` variable
+* If there is any data to submit, add it to the `data` variable
 
 To configure the check, go to create your check in NodePing. Add fields to look like `httpcheck.http_code`, `httpcheck.time_starttransfer`, `httpcheck.time_total`, etc. and set the min/max times you expect.
 
