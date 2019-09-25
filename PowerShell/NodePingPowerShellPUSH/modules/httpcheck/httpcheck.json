@@ -1,0 +1,6 @@
+{
+    "url": "https://example.com",
+    "http_method": "GET",
+    "content_type": "application/json",
+    "data": "{\"sample\":\"data\"}"
+}
