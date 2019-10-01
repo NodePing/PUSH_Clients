@@ -2,7 +2,7 @@
 	{ 
 		"Name": "cpuload",
 		"FileName": "powershell.exe",
-		"Arguments": "modules\\processor\\processor.ps1"
+		"Arguments": "modules\\cpuload\\cpuload.ps1"
 	},
 	{ 
 		"Name": "memfree",
