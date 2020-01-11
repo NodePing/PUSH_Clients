@@ -2,5 +2,5 @@
 
 ## Description
 
-Gathers the free memory that is available in a system.
+Gathers the free memory that is present in a system.
 This shouldn't be confused with memory available.
