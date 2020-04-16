@@ -28,7 +28,7 @@ foreach( $module in $modules )
 	$result.data[ $module.Name ] = $output | ConvertFrom-Json
 }
 
-$json = $result | ConvertTo-Json -Compress
+$json = $result | ConvertTo-Json -Compress -Depth 4
 
 
 if( $debug ) {	
