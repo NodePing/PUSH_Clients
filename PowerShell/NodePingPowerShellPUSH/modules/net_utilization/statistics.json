@@ -1,0 +1,11 @@
+{
+    "Ethernet 7":  {
+                       "rx":  {
+                                  "ReceivedBytes":  2873037107
+                              },
+                       "name":  "Ethernet 7",
+                       "tx":  {
+                                  "SentBytes":  39171989
+                              }
+                   }
+}
