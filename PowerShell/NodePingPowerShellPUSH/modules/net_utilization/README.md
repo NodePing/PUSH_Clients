@@ -11,7 +11,7 @@ well as the percentage of the configured values allowed.
 
 The operating system has `SentBytes` and `ReceivedBytes` values that are tracked
 once the operating system boots. To track the amount of traffic in a given
-period of time, we need the vale reported by the OS at the beginning of the
+period of time, we need the value reported by the OS at the beginning of the
 period, and then subtract that from the amount reported by the OS at the end of
 the period. This module can track that between intervals that the script is run,
 or you can instead report on a snapshot of X seconds of traffic. The module then
