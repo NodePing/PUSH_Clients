@@ -1,0 +1,11 @@
+[
+    {
+        "EachPush": true,
+        "SleepInterval": 60,
+        "interfaces": [
+            "Ethernet 7"
+        ],
+        "ExpectedNetUtilizationRX": 100,
+        "ExpectedNetUtilizationTX": 10
+    }
+]
