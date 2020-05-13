@@ -78,7 +78,9 @@ desired amount of seconds you want to collect bandwitdth metrics.
 
 ## General configuration
 
-The other variables to set are:
+All configurations will go in the `variables.sh` file.
+
+The other variables available to set are:
 
 * `interfaces` - the names of the interface(s) you want to monitor
 * `expected_net_utilization_rx` - the maximum bandwidth expected for downloads

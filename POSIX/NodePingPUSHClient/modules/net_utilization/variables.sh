@@ -10,7 +10,7 @@ each_push="true"
 sleep_interval=60
 
 # interface(s) to collect network utilization on
-interfaces="enp0s5"
+interfaces="eth0 eth1"
 
 # Max Mbps your user uses to calculate % bandwidth being used
 # Mbps received
