@@ -21,6 +21,10 @@ fi
 # Checks network utilization per interface
 for interface in $interfaces; do 
 
+    if [ ! -f "/sys/class/net/$interface/statistics/rx_bytes" ]; then
+        continue
+    fi
+
     echo "$sep"
 
     # If there is an existing entry and each_push, gather the info
