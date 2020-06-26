@@ -2,19 +2,7 @@
 
 # Get CPU utilization
 
-os=$(uname)
+id_column=$(vmstat | tail -n2 | awk -F ' ' '{for (i=1; i<= NF; ++i) print i, $i; exit}' | grep id | awk '{printf $1}')
+idle=$(vmstat 1 2 | tail -n1 | awk -v id_column=$id_column '{printf $id_column}')
 
-if [ "$os" = "Linux" ]; then
-    cpu_info=$(top -bn2 | grep "%Cpu" | tail -n1)
-    column_count=$(echo $cpu_info | awk -F ' ' '{printf NF; exit}')
-
-    # If the CPU is 100% idle, top doesn't put a space between id, and 100
-    # so this adds the space back to not mess with awk
-    if [ $column_count -eq 16 ]; then
-        cpu_info=$(echo "$cpu_info" | sed 's/ni,100.0/ni, 100.0/g')
-    fi
-
-    echo "$cpu_info" | awk '{printf (100 - $8)}'
-elif [ "$os" = "FreeBSD" ]; then
-    top -d2 | grep "CPU:" | tail -n1 | awk '{print $(NF-1)}' | sed 's/%//g'
-fi
+echo $(( 100 - $idle ))
