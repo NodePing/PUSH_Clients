@@ -14,7 +14,7 @@ else
 fi
 
 for ip in $ips; do
-    cidr=$(echo $ip | grep -oE '(100$)|/[1-9]{1,3}')
+    cidr=$(echo $ip | grep -oE '(100$)|/[0-9]{1,3}')
 
     if [ "$os" = "Linux" ]; then
         ip=$(echo $ip | sed "s#$cidr##g" | xargs)
