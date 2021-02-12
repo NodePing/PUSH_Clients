@@ -16,7 +16,6 @@ defmodule NodepingPUSH.Modules.Ping do
 
         {:error, error} ->
           Logger.info("#{__MODULE__} error:\n#{error}")
-          IO.inspect("#{@moduleconfigs}/ping.json")
           Process.exit(self(), :kill)
       end
 
