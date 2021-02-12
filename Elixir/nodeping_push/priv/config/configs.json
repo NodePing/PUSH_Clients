@@ -4,7 +4,7 @@
         {
             "modules": [
                 "NodepingPUSH.Modules.HelloWorld",
-                "NodepingPUSH.Modules.HelloWorld2"  
+                "NodepingPUSH.Modules.Ping"
             ],
             "interval": 1,
             "checkid": "your-checkid1",
@@ -12,7 +12,7 @@
         },
         {
             "modules": [
-                "NodepingPUSH.Modules.HelloWorld"
+                "NodepingPUSH.Modules.HelloWorld2"
             ],
             "interval": 3,
             "checkid": "your-checkid2",
