@@ -1,7 +1,8 @@
 import Config
 
 config :nodeping_push,
-  config_file: "/path/to/nodeping_push/priv/config/configs.json"
+  config_file: "/path/to/nodeping_push/priv/config/configs.json",
+  moduleconfigs: "/path/to/nodeping_push/priv/config/modules"
 
 config :nodeping_push, NodepingPUSH.Scheduler,
   jobs: [
