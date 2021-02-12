@@ -1,0 +1,22 @@
+{
+    "submit_results": true,
+    "jobs": [
+        {
+            "modules": [
+                "NodepingPUSH.Modules.HelloWorld",
+                "NodepingPUSH.Modules.HelloWorld2"  
+            ],
+            "interval": 1,
+            "checkid": "your-checkid1",
+            "checktoken": "your-checktoken1"
+        },
+        {
+            "modules": [
+                "NodepingPUSH.Modules.HelloWorld"
+            ],
+            "interval": 3,
+            "checkid": "your-checkid2",
+            "checktoken": "your-checktoken2"
+        }
+    ]
+}
