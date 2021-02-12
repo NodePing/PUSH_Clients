@@ -35,7 +35,6 @@ defmodule NodepingPUSH do
   def handle_cast({:run_jobs, interval}, state) do
     configs = read_config_file()
 
-    # {"data":{"pingstatus":{ "wa1.nodeping.com":1}}}
     configs
     |> Map.get(:jobs)
     |> Enum.filter(fn x -> Map.get(x, :interval) == interval end)
@@ -63,6 +62,8 @@ defmodule NodepingPUSH do
     checkid = job.checkid
     checktoken = job.checktoken
     url = generate_url(checkid, checktoken)
+
+    #  TODO Run dynamic supervisors instead so 1 module error not crash the whole client
 
     results =
       job
