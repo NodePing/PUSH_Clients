@@ -8,7 +8,7 @@ defmodule NodepingPUSH.Modules.Ping do
 
   @moduleconfigs Application.compile_env!(:nodeping_push, :moduleconfigs)
 
-  def main do
+  def main(checkid) do
     configs =
       case File.read("#{@moduleconfigs}/ping.json") do
         {:ok, configs} ->
@@ -19,12 +19,13 @@ defmodule NodepingPUSH.Modules.Ping do
           Process.exit(self(), :kill)
       end
 
-    timeout = configs.timeout
-    ping_count = configs.ping_count
+    checkid_params = Map.get(configs, String.to_atom(checkid))
+    timeout = checkid_params.timeout
+    ping_count = checkid_params.ping_count
     {_family, os} = :os.type()
 
     results =
-      configs.hosts
+      checkid_params.hosts
       |> Enum.map(&Task.async(fn -> ping(&1, ping_count, timeout, os) end))
       |> Enum.map(&Task.await(&1, timeout * 1_000 + 1_000))
       |> Enum.into(%{})
@@ -67,7 +68,7 @@ defmodule NodepingPUSH.Modules.Ping do
 
     case System.cmd(exec, args) do
       {result, 0} -> result
-      {_error, 1} -> {host, 100}
+      {_error, 2} -> {host, 100}
     end
   end
 

@@ -1,8 +1,18 @@
 {
-    "timeout": 5,
-    "ping_count": 1,
-    "hosts": [
-        {"host": "example.com", "inet": 4},
-        {"host": "ipv6.example.com", "inet": 6}
-    ]
+    "checkid": {
+        "timeout": 5,
+        "ping_count": 1,
+        "hosts": [
+            {"host": "example.com", "inet": 4},
+            {"host": "ipv6.example.com", "inet": 6}
+        ]
+    },
+    "checkid2": {
+        "timeout": 5,
+        "ping_count": 1,
+        "hosts": [
+            {"host": "example.com", "inet": 4},
+            {"host": "ipv6.example.com", "inet": 6}
+        ]
+    }
 }
