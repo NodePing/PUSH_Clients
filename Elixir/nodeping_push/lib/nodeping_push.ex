@@ -69,7 +69,7 @@ defmodule NodepingPUSH do
       job
       # List of modules to run
       |> Map.get(:modules)
-      |> Enum.map(&Task.async(fn -> run_module(&1) end))
+      |> Enum.map(&Task.async(fn -> run_module(&1, checkid) end))
       |> Enum.map(&Task.await(&1, 10_000))
       # Will have [{:hello_world, 1}, {:hello_world2, 1}]
       |> Enum.into(%{})
@@ -78,11 +78,11 @@ defmodule NodepingPUSH do
     submit_results(url, %{:data => results}, checkid, Map.get(configs, :submit_results))
   end
 
-  defp run_module(module) do
+  defp run_module(module, checkid) do
     apply(
       String.to_existing_atom("Elixir.#{module}"),
       :main,
-      []
+      [checkid]
     )
   end
 

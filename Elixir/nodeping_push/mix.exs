@@ -26,9 +26,8 @@ defmodule NodepingPUSH.MixProject do
       {:jason, "~> 1.2"},
       {:quantum, "~> 3.3"},
       {:logger_file_backend, "~> 0.0.11"},
-      {:credo, "~> 1.5"},
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:credo, "~> 1.5"}
+      # Module deps go here
     ]
   end
 end

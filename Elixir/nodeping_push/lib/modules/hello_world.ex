@@ -3,7 +3,7 @@ defmodule NodepingPUSH.Modules.HelloWorld do
   This module simply returns {:hello_world, 1}
   """
 
-  def main do
+  def main(_checkid) do
     {:hello_world, 1}
   end
 end
