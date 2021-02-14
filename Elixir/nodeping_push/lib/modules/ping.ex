@@ -49,8 +49,8 @@ defmodule NodepingPUSH.Modules.Ping do
   end
 
   defp ping(host_info, ping_count, timeout, :linux) do
-    host = host_info["host"]
-    inet = host_info["inet"]
+    host = host_info.host
+    inet = host_info.inet
 
     case inet do
       4 ->
@@ -60,7 +60,7 @@ defmodule NodepingPUSH.Modules.Ping do
         String.split("ping -c #{ping_count} -W #{timeout} -q #{host}")
     end
     |> run(host)
-    |> parse_ping(host, -10)
+    |> parse_ping(host, -9)
   end
 
   defp run(command, host) do
@@ -68,6 +68,7 @@ defmodule NodepingPUSH.Modules.Ping do
 
     case System.cmd(exec, args) do
       {result, 0} -> result
+      {_error, 1} -> {host, 100}
       {_error, 2} -> {host, 100}
     end
   end
