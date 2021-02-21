@@ -5,38 +5,18 @@ defmodule NodepingPUSH.Modules.Loadavg do
   """
 
   def main(_checkid) do
-    loads =
-      case :os.type() do
-        {:unix, :freebsd} ->
-          get_load(:freebsd)
+    one_min =
+      (:cpu_sup.avg1() / 256)
+      |> Float.round(2)
 
-        {:unix, :linux} ->
-          get_load(:linux)
-      end
+    five_min =
+      (:cpu_sup.avg5() / 256)
+      |> Float.round(2)
 
-    {:loadavg, loads}
-  end
+    fifteen_min =
+      (:cpu_sup.avg15() / 256)
+      |> Float.round(2)
 
-  defp get_load(:freebsd) do
-    {result, 0} = System.cmd("sysctl", ["vm.loadavg"])
-    split = String.split(result)
-
-    Enum.map(2..4, fn x -> Enum.at(split, x) end)
-    |> (&Enum.zip([:"1min", :"5min", :"15min"], &1)).()
-    |> Enum.into(%{})
-  end
-
-  defp get_load(:linux) do
-    case System.cmd("cat", ["/proc/loadavg"]) do
-      {result, 0} ->
-        split = String.split(result)
-
-        Enum.map(0..2, fn x -> Enum.at(split, x) end)
-        |> (&Enum.zip([:"1min", :"5min", :"15min"], &1)).()
-        |> Enum.into(%{})
-
-      {_result, 1} ->
-        %{:"1min" => 10_000, :"5min" => 10_000, :"15min" => 10_000}
-    end
+    {:loadavg, %{:"1min" => one_min, :"5min" => five_min, :"15min" => fifteen_min}}
   end
 end
