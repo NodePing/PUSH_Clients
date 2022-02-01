@@ -44,6 +44,7 @@ if( $debug ) {
 
 	while ( $tries -gt 0 ) {
 		try {
+			[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 			$response = Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec $timeout -Method POST -ContentType "application/json" -Body $json
 			$StatusCode = $response.StatusCode
 		}
