@@ -304,7 +304,7 @@ def detect_platform():
         return 'Linux'
     elif sys.platform.startswith("freebsd"):
         return 'FreeBSD'
-    elif sys.platform.startswith("openbsd6"):
+    elif sys.platform.startswith("openbsd"):
         return 'OpenBSD'
     else:
         panic('This tool currently only supports Linux, Windows, FreeBSD, and OpenBSD. '

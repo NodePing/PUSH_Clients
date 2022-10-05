@@ -102,4 +102,4 @@ Please see the examples of other modules in the metrics directory and their line
 Found a bug? Built a cool module for xyz? Send it to us!
 We'll encourage pull requests for any changes or additions to the clients, new modules, or documentation.
 
-copyright NodePing LLC 2019
+copyright NodePing LLC 2022

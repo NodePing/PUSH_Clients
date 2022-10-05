@@ -4,20 +4,18 @@ A client for the NodePing PUSH check (<https://nodeping.com/push_check.html>) fo
 
 ## Tested distros and systems
 
-- CentOS 5
-- CentOS 6
 - CentOS 7
-- Debian 9
+- Rocky/Alma Linux 8 & 9
 - Debian 10
-- Devuan 2
-- Fedora 29, 30
-- FreeBSD 11.2, 12.0
-- OpenBSD 6.5
+- Debian 11/Devuan Chimaera 4.0
+- Fedora 36, 37
+- FreeBSD 12.x, 13.x
+- OpenBSD 7.0+
 - OpenSUSE LEAP 15
 - Raspbian STRETCH
-- Ubuntu 14.04
-- Ubuntu 16.04
 - Ubuntu 18.04
+- Ubuntu 20.04
+- Ubuntu 22.04
 
 Requires installation of curl
 
@@ -100,4 +98,4 @@ For examples, see the modules in the metrics directory.
 Found a bug? Built a cool module for xyz? Send it to us!
 We encourage pull requests for any changes or additions to the clients, new modules, or documentation.
 
-copyright NodePing LLC 2019
+copyright NodePing LLC 2022
