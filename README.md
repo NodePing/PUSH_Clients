@@ -2,7 +2,7 @@
 
 This is a collection of clients to push heartbeats and metrics to **NodePing**.
 
-Linux, FreeBSD, Raspberry Pi, etc will find the POSIX and Python2/3 clients useful.
+Linux, FreeBSD, OpenBSD, Raspberry Pi, etc will find the POSIX and Python2/3 clients useful.
 Windows users would do well with the PowerShell or Python2/3 clients.
 
 ## NodePing PUSH checks
@@ -39,4 +39,4 @@ If you wish to push metrics to multiple checks in NodePing, for example to keep 
 Found a bug? Write a cool module? Got a client written in BASIC? Send it to us!
 We encourage pull requests for clients, modules, documentation, all of it. We appreciate your contributions.
 
-copyright NodePing LLC 2019
+copyright NodePing LLC 2022
