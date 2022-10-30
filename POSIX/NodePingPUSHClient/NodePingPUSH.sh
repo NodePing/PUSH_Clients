@@ -2,6 +2,8 @@
 
 CHECK_ID=""
 CHECK_TOKEN=""
+# Log file location
+logfilepath="$(dirname $0)/NodePingPUSH.log"
 # Location of modules
 MODULESPATH="$(dirname $0)/modules"
 debug=0
@@ -11,7 +13,6 @@ timeout=5
 
 url="https://push.nodeping.com/v1?id=$CHECK_ID&checktoken=$CHECK_TOKEN"
 pathtomoduleconfig="$(dirname $0)/moduleconfig"
-logfilepath="$(dirname $0)/NodePingPUSH.log"
 for var in "$@"
 do
     case $var in
