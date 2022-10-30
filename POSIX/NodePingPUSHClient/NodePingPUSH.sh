@@ -1,13 +1,17 @@
 #!/usr/bin/env sh
 
-url='https://push.nodeping.com/v1?id=CHECK_ID_HERE&checktoken=CHECK_TOKEN_HERE'
-pathtomoduleconfig='/full/path/to/moduleconfig'
-logfilepath='/full/path/to/logfile/NodePingPUSH.log'
+CHECK_ID=""
+CHECK_TOKEN=""
+# Location of modules
+MODULESPATH="$(dirname $0)/modules"
 debug=0
 log=0
 retries=3
 timeout=5
 
+url="https://push.nodeping.com/v1?id=$CHECK_ID&checktoken=$CHECK_TOKEN"
+pathtomoduleconfig="$(dirname $0)/moduleconfig"
+logfilepath="$(dirname $0)/NodePingPUSH.log"
 for var in "$@"
 do
     case $var in
@@ -22,10 +26,9 @@ done
 
 json=''
 
-while IFS=$'=' read -r module filename
+while read -r module
 do
-
-	result=$($filename);
+	result=$(sh $MODULESPATH/$module/$module.sh)
 
 	if [ -z "$json" ]
 	then
@@ -48,25 +51,11 @@ else
 		echo "$(date) => $json" >> $logfilepath
 	fi
 
-	# Tries to connect once and then retries if fails $retries more times
-	tries=$(($retries + 1))
-
-	while [ $tries -gt 0 ]
-	do
-		response=$(curl --connect-timeout $timeout -s -w "%{http_code}" -X POST -H "Content-Type: application/json" --data "$json" "$url")
-		code=$(echo "$response" | tail -n1)
-		# 200 means it went through successfully, 409 means throttled, but it still connected
-		good_response=$(echo $response | grep -c -E '200|409')
-		response=$(echo "$response" | sed '$d')
-
-		# If no 200 or 409, subract from our retry count. Otherwise, break from the loop and continue
-		if [ $good_response = 0 ]
-		then
-			tries=$(($tries - 1))
-		else
-			break
-		fi
-	done
+	response=$(curl --connect-timeout $timeout -s --retry $retries  -w "%{http_code}" -X POST -H "Content-Type: application/json" --data "$json" "$url")
+	code=$(echo "$response" | tail -n1)
+	# 200 means it went through successfully, 409 means throttled, but it still connected
+	good_response=$(echo $response | grep -c -E '200|409')
+	response=$(echo "$response" | sed '$d')
 fi
 
 if [ $log = 1 ]
