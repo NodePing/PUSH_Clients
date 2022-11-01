@@ -21,25 +21,22 @@ Requires installation of curl
 
 ## Configuration
 
-Modify the 'moduleconfig' file and put the full absolute path for the modules there.  You can add or remove any metric modules you desire.
-
-Modify the 'NodePingPUSH.sh' file and edit the url on line 3:
-Replace CHECK_ID_HERE with your NodePing check id (found in the check drawer  - click on the check name).
-Also replace CHECK_TOKEN_HERE with your NodePing check token (also found in the check drawer)
+* Modify the 'moduleconfig' file and put the module names you want to run. You can add or remove any metric modules you desire.
+* On line 3 of NodePingPUSH.sh, add your Check ID to the `CHECK_ID` variable (found in the check drawer - click on the name of the check).
+* On line 4 of NodePingPUSH.sh, add your Checktoken to the `CHECK_TOKEN` variable (also found in the check drawer).
 
 Example:
 
 ```sh
-url='https://push.nodeping.com/v1?id=201808131639R5ZBF-9TXFFET4&checktoken=EPRFLBJN-GXU5-4QDG-8BNW-5MAS7QQYTCB4'
+CHECK_ID="201808131639R5ZBF-9TXFFET4"
+CHECK_TOKEN="EPRFLBJN-GXU5-4QDG-8BNW-5MAS7QQYTCB4"
 ```
 
-Modify the 'NodePingPUSH.sh' file and edit the pathtomoduleconfig on line 4 to be the absolute path of the moduleconfig file.
+### Optional Configuration
 
-Modify the 'NodePingPUSH.sh' file and edit the logfilepath on line 5 to be the absolute path that you want the logfile at.
-
-Modify the 'NodePingPUSH.sh' file and edit the retries on line 8 to set the number of times you want the client to retry connecting if the client is unable to connect the first time.
-
-Modify the 'NodePingPUSH.sh' file and edit the timeout on line 9 to determine how many seconds you want to timeout the connection if the server cannot be reached.
+* Modify the 'NodePingPUSH.sh' file and edit the logfilepath on line 6 to be the absolute path that you want the logfile at. Default is the current directory of `NodePingPUSH.sh`.
+* Modify the 'NodePingPUSH.sh' file and edit the retries on line 11 to set the number of times you want the client to retry connecting if the client is unable to connect the first time.
+* Modify the 'NodePingPUSH.sh' file and edit the timeout on line 12 to determine how many seconds you want to timeout the connection if the server cannot be reached.
 
 ## Usage
 
