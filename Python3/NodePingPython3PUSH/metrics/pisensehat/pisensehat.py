@@ -1,6 +1,6 @@
 #/usr/bin/env python3
+## -*- coding: utf-8 -*-
 
-import time
 from sense_hat import SenseHat
 from os import popen
 from re import findall
@@ -10,25 +10,10 @@ from . import config
 def set_rotation(sense, degrees):
     sense.set_rotation(degrees)
 
+
 def get_cpu_temp():
     result = popen("vcgencmd measure_temp").readline()
     return [float(num) for num in findall(r'[\d.]+', result)][0]
-
-def calculate_correction(cpu_temp):
-    """
-    If the SenseHat is stacked on the Pi, we need to calcuate the
-    calibration to offset the rising CPU temp with the actual
-    air temp.
-    """
-
-    if cpu_temp <= 55:
-        return 0.8
-    elif cpu_temp > 55 and cpu_temp < 60:
-        return 1.4
-    elif cpu_temp >=60 and cpu_temp < 64:
-        return 1.8
-    else:
-        return 2.0
 
 
 def collect_metrics(sense):
@@ -36,8 +21,7 @@ def collect_metrics(sense):
     
     cpu_temp = get_cpu_temp()
     air_temp = sense.get_temperature_from_humidity()
-    calibration = calculate_correction(cpu_temp)
-    final_temp = air_temp - ((cpu_temp - air_temp) / calibration)
+    final_temp = air_temp - ((cpu_temp - air_temp) / config.TEMP_CALIBRATION)
     
     humidity = int(sense.get_humidity() + 10)
     sense.get_pressure()
