@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # DNS server IP to query
-dns_ip="9.9.9.9"
+dns_ip="84.22.105.156"
 
 # Hostname to resolve
 to_resolve="nodeping.com"

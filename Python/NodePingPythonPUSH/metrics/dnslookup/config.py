@@ -1,5 +1,5 @@
 # DNS server IP to query
-dns_ip = "64.34.204.155"
+dns_ip = "84.22.105.156"
 
 # Hostname to resolve
 to_resolve = "nodeping.com"
