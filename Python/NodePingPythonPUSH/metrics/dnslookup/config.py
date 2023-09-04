@@ -6,7 +6,7 @@ to_resolve = "nodeping.com"
 
 # Expected IP or hostname as output. Deliminate results with spaces
 # Multiple outputs should be put in a list
-expected_output = "167.114.101.137"
+expected_output = "51.79.77.52"
 
 # Query type
 query_type = "A"
